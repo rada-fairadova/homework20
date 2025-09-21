@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url('../assets/hammer-cursor.png'), auto;
+  }
+  
+  body.hammer-active {
+    cursor: url('../assets/hammer-active.png') 16 16, pointer;
+  }
+  
+  .game-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  h1 {
+    color: #ecf0f1;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .game-board {
+    display: grid;
+    gap: 10px;
+    margin: 2rem 0;
+  }
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    background: rgba(52, 152, 219, 0.3);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cell:hover {
+    background: rgba(52, 152, 219, 0.5);
+    transform: scale(1.05);
+  }
+  
+  .cell.active {
+    background: rgba(231, 76, 60, 0.3);
+  }
+  
+  .goblin {
+    width: 80px;
+    height: 80px;
+    background: url('../assets/goblin.png') center/contain no-repeat;
+    animation: popIn 0.3s ease-out;
+  }
+  
+  @keyframes popIn {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  .score-container {
+    color: #ecf0f1;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .controls {
+    margin: 1rem 0;
+  }
+  
+  button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(0);
+  }
+  
+  #gameOver {
+    color: #e74c3c;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    display: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .misses {
+    color: #f39c12;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
